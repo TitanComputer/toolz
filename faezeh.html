@@ -1,59 +1,97 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fa">
 <head>
     <meta charset="UTF-8">
-    <title>Copy Text Example</title>
+    <title>کپی متن‌ها</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            padding: 30px;
-            background-color: #f0f0f0;
+            font-family: Tahoma, sans-serif;
+            direction: rtl;
+            background-color: #f5f5f5;
+            padding: 40px;
         }
-        #container {
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 40px;
+        }
+        .field-container {
             background-color: #fff;
             padding: 20px;
-            max-width: 500px;
-            margin: auto;
-            border-radius: 10px;
+            border-radius: 12px;
             box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .field-title {
+            font-size: 18px;
+            margin-bottom: 10px;
         }
         input[type="text"] {
             width: 100%;
-            padding: 10px;
+            padding: 12px;
             font-size: 16px;
             margin-bottom: 10px;
         }
         button {
             padding: 10px 20px;
-            font-size: 16px;
+            font-size: 15px;
             cursor: pointer;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 6px;
         }
-        #copiedMessage {
+        .copied-message {
             color: green;
             margin-top: 10px;
             display: none;
+            font-size: 14px;
         }
     </style>
 </head>
 <body>
-    <div id="container">
-        <input type="text" id="myText" value="متن دلخواه برای کپی کردن" readonly>
-        <button onclick="copyText()">کپی کن</button>
-        <div id="copiedMessage">متن کپی شد!</div>
+
+    <h1>کپی سریع متن‌ها</h1>
+
+    <div class="field-container">
+        <div class="field-title">متن اول</div>
+        <input type="text" id="text1" value="این متن اول است" readonly>
+        <button onclick="copyText('text1', 'msg1')">کپی کن</button>
+        <div id="msg1" class="copied-message">کپی شد!</div>
+    </div>
+
+    <div class="field-container">
+        <div class="field-title">کد پیگیری</div>
+        <input type="text" id="text2" value="TRK-9987-ABCD" readonly>
+        <button onclick="copyText('text2', 'msg2')">کپی کن</button>
+        <div id="msg2" class="copied-message">کپی شد!</div>
+    </div>
+
+    <div class="field-container">
+        <div class="field-title">لینک ورود</div>
+        <input type="text" id="text3" value="https://example.com/login" readonly>
+        <button onclick="copyText('text3', 'msg3')">کپی کن</button>
+        <div id="msg3" class="copied-message">کپی شد!</div>
     </div>
 
     <script>
-        function copyText() {
-            const textInput = document.getElementById("myText");
-            textInput.select();
-            textInput.setSelectionRange(0, 99999); // برای موبایل
+        function copyText(inputId, msgId) {
+            const input = document.getElementById(inputId);
+            input.select();
+            input.setSelectionRange(0, 99999); // برای موبایل
 
-            navigator.clipboard.writeText(textInput.value).then(() => {
-                const message = document.getElementById("copiedMessage");
-                message.style.display = "block";
-                setTimeout(() => message.style.display = "none", 2000);
+            navigator.clipboard.writeText(input.value).then(() => {
+                const msg = document.getElementById(msgId);
+                msg.style.display = "block";
+                setTimeout(() => {
+                    msg.style.display = "none";
+                }, 2000);
             });
         }
     </script>
+
 </body>
 </html>
