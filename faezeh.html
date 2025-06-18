@@ -12,16 +12,13 @@
             padding: 20px;
         }
         h1 {
-            border: 3px dotted #e53935;
-            padding: 15px 25px;
-            border-radius: 10px;
-            color: #b71c1c;
-            background-color: #ffebee;
-            text-align: center;
-            display: inline-block;
-            margin: 0 auto 40px;
+          border: 3px dotted #e53935;
+          padding: 15px 25px;
+          border-radius: 10px;
+          color: #b71c1c;
+          background-color: #ffebee;
+          animation: pulse-glow 2s infinite ease-in-out;
         }
-
         .field-container {
             background-color: #fff;
             padding: 20px;
@@ -64,12 +61,18 @@
         max-width: 600px;
         border-radius: 4px;
         }
+        .title-container {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          margin-bottom: 40px;
+        }
     </style>
 </head>
 <body>
-
+    <div class="title-container">
     <h1>Faezeh Rezayat</h1>
-
+    </div>
     <div class="field-container">
         <div class="field-title">کانفیگ فرگمنت برای Hiddify</div>
         <input type="text" id="text1" value="hiddify://import/https://0a3-hpxb-mdbeqksrbkj-63bpvvdleej.rkrzy.workers.dev/sub/fragment/WWA9%248N*ItOTi7Pv?app=hiddify-frag#%F0%9F%92%A6%20BPB%20Fragment" readonly>
